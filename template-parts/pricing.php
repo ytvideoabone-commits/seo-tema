@@ -27,7 +27,7 @@ $packages = array(
 				$is_featured = (bool) seo_tema_get_option( $slug . '_featured' );
 				$features    = preg_split( '/\r\n|\r|\n/', (string) seo_tema_get_option( $slug . '_features' ) );
 				?>
-				<article class="pricing-card <?php echo $is_featured ? 'is-featured' : ''; ?>">
+				<article class="pricing-card <?php echo esc_attr( $is_featured ? 'is-featured' : '' ); ?>">
 					<?php if ( $is_featured && ! empty( $meta['badge'] ) ) : ?>
 						<span class="badge"><?php echo esc_html( $meta['badge'] ); ?></span>
 					<?php endif; ?>
@@ -43,7 +43,7 @@ $packages = array(
 							<?php endif; ?>
 						<?php endforeach; ?>
 					</ul>
-					<a class="btn <?php echo $is_featured ? '' : 'btn-outline'; ?>" href="<?php echo esc_url( seo_tema_get_option( $slug . '_button_url' ) ); ?>"><?php echo esc_html( seo_tema_get_option( $slug . '_button_text' ) ); ?></a>
+					<a class="btn <?php echo esc_attr( $is_featured ? '' : 'btn-outline' ); ?>" href="<?php echo esc_url( seo_tema_get_option( $slug . '_button_url' ) ); ?>"><?php echo esc_html( seo_tema_get_option( $slug . '_button_text' ) ); ?></a>
 				</article>
 			<?php endforeach; ?>
 		</div>

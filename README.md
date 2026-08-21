@@ -36,3 +36,7 @@
    - özellik listesi (satır satır)
    - buton metni ve URL
    - öne çıkan paket seçeneği
+
+## Referanslar nasıl güncellenir
+- **Görünüm > Tema Ayarları > Referanslar** alanından kart içeriklerini güncelleyebilirsiniz.
+- Her kart için keyword, eski sıra, yeni sıra ve büyüme metni ayrı ayrı yönetilir.

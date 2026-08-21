@@ -28,6 +28,18 @@ function seo_tema_default_options() {
 		'hero_button_2_text'      => 'Başarı Hikayeleri',
 		'hero_button_2_url'       => '#referanslar',
 		'hero_image'              => '',
+		'ref_1_keyword'           => 'şişme kamp çadırı',
+		'ref_1_old_rank'          => '105',
+		'ref_1_new_rank'          => '1',
+		'ref_1_growth'            => '+400% Organik Trafik Büyümesi',
+		'ref_2_keyword'           => 'endüstriyel dalgıçlık',
+		'ref_2_old_rank'          => '84',
+		'ref_2_new_rank'          => '1',
+		'ref_2_growth'            => '+250% Dönüşüm Artışı',
+		'ref_3_keyword'           => '185/65 R14 lastik',
+		'ref_3_old_rank'          => 'Yeni Site',
+		'ref_3_new_rank'          => '1',
+		'ref_3_growth'            => '50.000+ Aylık Yeni Ziyaretçi',
 		'bronze_name'             => 'Bronze Paket',
 		'bronze_price'            => '4,999 TL',
 		'bronze_period'           => '/ay',
@@ -70,13 +82,30 @@ function seo_tema_default_options() {
  * @return array<string, mixed>
  */
 function seo_tema_get_options() {
+	global $seo_tema_options_cache;
+
+	if ( is_array( $seo_tema_options_cache ) ) {
+		return $seo_tema_options_cache;
+	}
+
 	$defaults = seo_tema_default_options();
 	$saved    = get_option( 'seo_tema_options', array() );
 	if ( ! is_array( $saved ) ) {
 		$saved = array();
 	}
-	return wp_parse_args( $saved, $defaults );
+	$seo_tema_options_cache = wp_parse_args( $saved, $defaults );
+
+	return $seo_tema_options_cache;
 }
+
+/**
+ * Clear in-request options cache on save.
+ */
+function seo_tema_reset_options_cache() {
+	global $seo_tema_options_cache;
+	$seo_tema_options_cache = null;
+}
+add_action( 'update_option_seo_tema_options', 'seo_tema_reset_options_cache' );
 
 /**
  * Read one option value.
@@ -112,6 +141,7 @@ function seo_tema_register_settings() {
 	$sections = array(
 		'general'   => __( 'Genel', 'seo-tema' ),
 		'hero'      => __( 'Hero', 'seo-tema' ),
+		'reference' => __( 'Referanslar', 'seo-tema' ),
 		'packages'  => __( 'Paketler', 'seo-tema' ),
 		'contact'   => __( 'İletişim', 'seo-tema' ),
 		'social'    => __( 'Sosyal Medya', 'seo-tema' ),
@@ -158,6 +188,18 @@ function seo_tema_fields() {
 		'hero_button_2_text'  => array( 'label' => __( 'Hero 2. Buton Metni', 'seo-tema' ), 'type' => 'text', 'section' => 'hero' ),
 		'hero_button_2_url'   => array( 'label' => __( 'Hero 2. Buton URL', 'seo-tema' ), 'type' => 'url', 'section' => 'hero' ),
 		'hero_image'          => array( 'label' => __( 'Hero Görsel URL', 'seo-tema' ), 'type' => 'url', 'section' => 'hero' ),
+		'ref_1_keyword'       => array( 'label' => __( 'Referans 1 Keyword', 'seo-tema' ), 'type' => 'text', 'section' => 'reference' ),
+		'ref_1_old_rank'      => array( 'label' => __( 'Referans 1 Eski Sıra', 'seo-tema' ), 'type' => 'text', 'section' => 'reference' ),
+		'ref_1_new_rank'      => array( 'label' => __( 'Referans 1 Yeni Sıra', 'seo-tema' ), 'type' => 'text', 'section' => 'reference' ),
+		'ref_1_growth'        => array( 'label' => __( 'Referans 1 Büyüme Metni', 'seo-tema' ), 'type' => 'text', 'section' => 'reference' ),
+		'ref_2_keyword'       => array( 'label' => __( 'Referans 2 Keyword', 'seo-tema' ), 'type' => 'text', 'section' => 'reference' ),
+		'ref_2_old_rank'      => array( 'label' => __( 'Referans 2 Eski Sıra', 'seo-tema' ), 'type' => 'text', 'section' => 'reference' ),
+		'ref_2_new_rank'      => array( 'label' => __( 'Referans 2 Yeni Sıra', 'seo-tema' ), 'type' => 'text', 'section' => 'reference' ),
+		'ref_2_growth'        => array( 'label' => __( 'Referans 2 Büyüme Metni', 'seo-tema' ), 'type' => 'text', 'section' => 'reference' ),
+		'ref_3_keyword'       => array( 'label' => __( 'Referans 3 Keyword', 'seo-tema' ), 'type' => 'text', 'section' => 'reference' ),
+		'ref_3_old_rank'      => array( 'label' => __( 'Referans 3 Eski Sıra', 'seo-tema' ), 'type' => 'text', 'section' => 'reference' ),
+		'ref_3_new_rank'      => array( 'label' => __( 'Referans 3 Yeni Sıra', 'seo-tema' ), 'type' => 'text', 'section' => 'reference' ),
+		'ref_3_growth'        => array( 'label' => __( 'Referans 3 Büyüme Metni', 'seo-tema' ), 'type' => 'text', 'section' => 'reference' ),
 		'bronze_name'         => array( 'label' => __( 'Bronze Paket Adı', 'seo-tema' ), 'type' => 'text', 'section' => 'packages' ),
 		'bronze_price'        => array( 'label' => __( 'Bronze Fiyat', 'seo-tema' ), 'type' => 'text', 'section' => 'packages' ),
 		'bronze_period'       => array( 'label' => __( 'Bronze Fiyat Periyodu', 'seo-tema' ), 'type' => 'text', 'section' => 'packages' ),

@@ -10,9 +10,24 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $items = array(
-	array( 'keyword' => 'şişme kamp çadırı', 'old' => '105', 'new' => '1', 'growth' => '+400% Organik Trafik Büyümesi' ),
-	array( 'keyword' => 'endüstriyel dalgıçlık', 'old' => '84', 'new' => '1', 'growth' => '+250% Dönüşüm Artışı' ),
-	array( 'keyword' => '185/65 R14 lastik', 'old' => 'Yeni Site', 'new' => '1', 'growth' => '50.000+ Aylık Yeni Ziyaretçi' ),
+	array(
+		'keyword' => seo_tema_get_option( 'ref_1_keyword' ),
+		'old'     => seo_tema_get_option( 'ref_1_old_rank' ),
+		'new'     => seo_tema_get_option( 'ref_1_new_rank' ),
+		'growth'  => seo_tema_get_option( 'ref_1_growth' ),
+	),
+	array(
+		'keyword' => seo_tema_get_option( 'ref_2_keyword' ),
+		'old'     => seo_tema_get_option( 'ref_2_old_rank' ),
+		'new'     => seo_tema_get_option( 'ref_2_new_rank' ),
+		'growth'  => seo_tema_get_option( 'ref_2_growth' ),
+	),
+	array(
+		'keyword' => seo_tema_get_option( 'ref_3_keyword' ),
+		'old'     => seo_tema_get_option( 'ref_3_old_rank' ),
+		'new'     => seo_tema_get_option( 'ref_3_new_rank' ),
+		'growth'  => seo_tema_get_option( 'ref_3_growth' ),
+	),
 );
 ?>
 <section id="referanslar" class="references-section">
@@ -24,7 +39,7 @@ $items = array(
 		<div class="references-grid">
 			<?php foreach ( $items as $item ) : ?>
 				<article class="reference-card">
-					<div class="tag"><?php echo esc_html( 'Keyword: ' . $item['keyword'] ); ?></div>
+					<div class="tag"><?php echo esc_html( __( 'Keyword: ', 'seo-tema' ) . $item['keyword'] ); ?></div>
 					<div class="stats">
 						<div><small><?php esc_html_e( 'Eski Sıra', 'seo-tema' ); ?></small><strong><?php echo esc_html( $item['old'] ); ?></strong></div>
 						<div><small><?php esc_html_e( 'Yeni Sıra', 'seo-tema' ); ?></small><strong class="text-secondary"><?php echo esc_html( $item['new'] ); ?></strong></div>
