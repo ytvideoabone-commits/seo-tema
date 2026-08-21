@@ -16,6 +16,10 @@ $has_sidebar = is_active_sidebar( 'blog-sidebar' );
 	<div class="container blog-layout <?php echo $has_sidebar ? 'has-sidebar' : ''; ?>">
 		<div class="blog-main">
 		<?php while ( have_posts() ) : the_post(); ?>
+			<?php
+			$post_categories = get_the_category_list( ', ' );
+			$post_tags       = get_the_tag_list( '', ', ' );
+			?>
 			<article <?php post_class( 'single-post' ); ?>>
 				<?php if ( function_exists( 'bcn_display' ) ) : ?>
 					<nav class="blog-breadcrumbs" aria-label="<?php esc_attr_e( 'Breadcrumb', 'seo-tema' ); ?>">
@@ -27,12 +31,9 @@ $has_sidebar = is_active_sidebar( 'blog-sidebar' );
 					<time datetime="<?php echo esc_attr( get_the_date( DATE_W3C ) ); ?>"><?php echo esc_html( get_the_date() ); ?></time>
 					<span aria-hidden="true">·</span>
 					<span><?php the_author_posts_link(); ?></span>
-					<?php
-					$meta_categories = get_the_category_list( ', ' );
-					if ( $meta_categories ) :
-						?>
+					<?php if ( $post_categories ) : ?>
 						<span aria-hidden="true">·</span>
-						<span><?php echo wp_kses_post( $meta_categories ); ?></span>
+						<span><?php echo wp_kses_post( $post_categories ); ?></span>
 					<?php endif; ?>
 				</div>
 				<?php if ( has_post_thumbnail() ) : ?>
@@ -40,17 +41,11 @@ $has_sidebar = is_active_sidebar( 'blog-sidebar' );
 				<?php endif; ?>
 				<div class="post-content"><?php the_content(); ?></div>
 				<footer class="post-footer">
-					<?php
-					$footer_categories = get_the_category_list( ', ' );
-					if ( $footer_categories ) :
-						?>
-						<div class="post-taxonomy post-categories"><strong><?php esc_html_e( 'Kategoriler:', 'seo-tema' ); ?></strong> <?php echo wp_kses_post( $footer_categories ); ?></div>
+					<?php if ( $post_categories ) : ?>
+						<div class="post-taxonomy post-categories"><strong><?php esc_html_e( 'Kategoriler:', 'seo-tema' ); ?></strong> <?php echo wp_kses_post( $post_categories ); ?></div>
 					<?php endif; ?>
-					<?php
-					$footer_tags = get_the_tag_list( '', ', ' );
-					if ( $footer_tags ) :
-						?>
-						<div class="post-taxonomy post-tags"><strong><?php esc_html_e( 'Etiketler:', 'seo-tema' ); ?></strong> <?php echo wp_kses_post( $footer_tags ); ?></div>
+					<?php if ( $post_tags ) : ?>
+						<div class="post-taxonomy post-tags"><strong><?php esc_html_e( 'Etiketler:', 'seo-tema' ); ?></strong> <?php echo wp_kses_post( $post_tags ); ?></div>
 					<?php endif; ?>
 					<nav class="post-navigation" aria-label="<?php esc_attr_e( 'Yazı Gezinme', 'seo-tema' ); ?>">
 						<div class="post-navigation-prev"><?php previous_post_link( '%link', esc_html__( '← Önceki Yazı', 'seo-tema' ) ); ?></div>
