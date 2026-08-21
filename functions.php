@@ -45,6 +45,24 @@ if ( ! function_exists( 'seo_tema_setup' ) ) {
 add_action( 'after_setup_theme', 'seo_tema_setup' );
 
 /**
+ * Register widget areas.
+ */
+function seo_tema_register_sidebars() {
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Blog Sağ Sidebar', 'seo-tema' ),
+			'id'            => 'blog-sidebar',
+			'description'   => esc_html__( 'Blog ve yazı sayfaları için sağ sidebar alanı.', 'seo-tema' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+}
+add_action( 'widgets_init', 'seo_tema_register_sidebars' );
+
+/**
  * Enqueue styles and scripts.
  */
 function seo_tema_enqueue_assets() {
