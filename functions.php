@@ -10,6 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 require get_template_directory() . '/inc/theme-settings.php';
+require get_template_directory() . '/inc/packages.php';
 require get_template_directory() . '/inc/customizer.php';
 
 if ( ! function_exists( 'seo_tema_setup' ) ) {
