@@ -292,7 +292,9 @@ img { max-width: 100%; height: auto; display: block; }
   width: 100%;
 }
 .single-post .post-content img,
-.wp-block-image img { border-radius: 8px; }
+.wp-block-image img {
+  border-radius: 8px;
+}
 .post-footer {
   margin-top: 26px;
   padding-top: 20px;
