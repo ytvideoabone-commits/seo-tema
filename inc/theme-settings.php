@@ -40,6 +40,10 @@ function seo_tema_default_options() {
 		'ref_3_old_rank'          => 'Yeni Site',
 		'ref_3_new_rank'          => '1',
 		'ref_3_growth'            => '50.000+ Aylık Yeni Ziyaretçi',
+		'packages_title'          => 'Uzman Backlink Paketleri',
+		'packages_description'    => 'İhtiyacınıza uygun, yüksek otoriteli ve organik büyümeyi hedefleyen SEO paketlerimiz.',
+		'packages_visible'        => 1,
+		'packages_max_count'      => 0,
 		'bronze_name'             => 'Bronze Paket',
 		'bronze_price'            => '4,999 TL',
 		'bronze_period'           => '/ay',
@@ -200,27 +204,10 @@ function seo_tema_fields() {
 		'ref_3_old_rank'      => array( 'label' => __( 'Referans 3 Eski Sıra', 'seo-tema' ), 'type' => 'text', 'section' => 'reference' ),
 		'ref_3_new_rank'      => array( 'label' => __( 'Referans 3 Yeni Sıra', 'seo-tema' ), 'type' => 'text', 'section' => 'reference' ),
 		'ref_3_growth'        => array( 'label' => __( 'Referans 3 Büyüme Metni', 'seo-tema' ), 'type' => 'text', 'section' => 'reference' ),
-		'bronze_name'         => array( 'label' => __( 'Bronze Paket Adı', 'seo-tema' ), 'type' => 'text', 'section' => 'packages' ),
-		'bronze_price'        => array( 'label' => __( 'Bronze Fiyat', 'seo-tema' ), 'type' => 'text', 'section' => 'packages' ),
-		'bronze_period'       => array( 'label' => __( 'Bronze Fiyat Periyodu', 'seo-tema' ), 'type' => 'text', 'section' => 'packages' ),
-		'bronze_features'     => array( 'label' => __( 'Bronze Özellik Listesi (satır satır)', 'seo-tema' ), 'type' => 'textarea', 'section' => 'packages' ),
-		'bronze_button_text'  => array( 'label' => __( 'Bronze Buton Yazısı', 'seo-tema' ), 'type' => 'text', 'section' => 'packages' ),
-		'bronze_button_url'   => array( 'label' => __( 'Bronze Buton URL', 'seo-tema' ), 'type' => 'url', 'section' => 'packages' ),
-		'bronze_featured'     => array( 'label' => __( 'Bronze Öne Çıkan Paket', 'seo-tema' ), 'type' => 'checkbox', 'section' => 'packages' ),
-		'silver_name'         => array( 'label' => __( 'Gümüş Paket Adı', 'seo-tema' ), 'type' => 'text', 'section' => 'packages' ),
-		'silver_price'        => array( 'label' => __( 'Gümüş Fiyat', 'seo-tema' ), 'type' => 'text', 'section' => 'packages' ),
-		'silver_period'       => array( 'label' => __( 'Gümüş Fiyat Periyodu', 'seo-tema' ), 'type' => 'text', 'section' => 'packages' ),
-		'silver_features'     => array( 'label' => __( 'Gümüş Özellik Listesi (satır satır)', 'seo-tema' ), 'type' => 'textarea', 'section' => 'packages' ),
-		'silver_button_text'  => array( 'label' => __( 'Gümüş Buton Yazısı', 'seo-tema' ), 'type' => 'text', 'section' => 'packages' ),
-		'silver_button_url'   => array( 'label' => __( 'Gümüş Buton URL', 'seo-tema' ), 'type' => 'url', 'section' => 'packages' ),
-		'silver_featured'     => array( 'label' => __( 'Gümüş Öne Çıkan Paket', 'seo-tema' ), 'type' => 'checkbox', 'section' => 'packages' ),
-		'gold_name'           => array( 'label' => __( 'Altın Paket Adı', 'seo-tema' ), 'type' => 'text', 'section' => 'packages' ),
-		'gold_price'          => array( 'label' => __( 'Altın Fiyat', 'seo-tema' ), 'type' => 'text', 'section' => 'packages' ),
-		'gold_period'         => array( 'label' => __( 'Altın Fiyat Periyodu', 'seo-tema' ), 'type' => 'text', 'section' => 'packages' ),
-		'gold_features'       => array( 'label' => __( 'Altın Özellik Listesi (satır satır)', 'seo-tema' ), 'type' => 'textarea', 'section' => 'packages' ),
-		'gold_button_text'    => array( 'label' => __( 'Altın Buton Yazısı', 'seo-tema' ), 'type' => 'text', 'section' => 'packages' ),
-		'gold_button_url'     => array( 'label' => __( 'Altın Buton URL', 'seo-tema' ), 'type' => 'url', 'section' => 'packages' ),
-		'gold_featured'       => array( 'label' => __( 'Altın Öne Çıkan Paket', 'seo-tema' ), 'type' => 'checkbox', 'section' => 'packages' ),
+		'packages_title'       => array( 'label' => __( 'Paketler Bölümü Başlığı', 'seo-tema' ), 'type' => 'text', 'section' => 'packages' ),
+		'packages_description' => array( 'label' => __( 'Paketler Bölümü Açıklaması', 'seo-tema' ), 'type' => 'textarea', 'section' => 'packages' ),
+		'packages_visible'     => array( 'label' => __( 'Paketler Bölümünü Göster', 'seo-tema' ), 'type' => 'checkbox', 'section' => 'packages' ),
+		'packages_max_count'   => array( 'label' => __( 'Gösterilecek Maksimum Paket Sayısı (0 = tümü)', 'seo-tema' ), 'type' => 'number', 'section' => 'packages' ),
 		'contact_email'       => array( 'label' => __( 'E-posta', 'seo-tema' ), 'type' => 'email', 'section' => 'contact' ),
 		'contact_phone'       => array( 'label' => __( 'Telefon', 'seo-tema' ), 'type' => 'text', 'section' => 'contact' ),
 		'contact_whatsapp'    => array( 'label' => __( 'WhatsApp', 'seo-tema' ), 'type' => 'text', 'section' => 'contact' ),
@@ -258,7 +245,7 @@ function seo_tema_render_field( $args ) {
 		return;
 	}
 
-	$input_type = in_array( $type, array( 'email', 'url', 'text' ), true ) ? $type : 'text';
+	$input_type = in_array( $type, array( 'email', 'url', 'text', 'number' ), true ) ? $type : 'text';
 	echo '<input class="regular-text" type="' . esc_attr( $input_type ) . '" name="' . esc_attr( $name ) . '" value="' . esc_attr( (string) $value ) . '" />';
 }
 
@@ -292,6 +279,9 @@ function seo_tema_sanitize_options( $input ) {
 				break;
 			case 'textarea':
 				$output[ $key ] = wp_kses_post( (string) $value );
+				break;
+			case 'number':
+				$output[ $key ] = absint( $value );
 				break;
 			default:
 				$output[ $key ] = sanitize_text_field( (string) $value );
